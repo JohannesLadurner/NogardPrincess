@@ -19,6 +19,8 @@ window/size/width=480
 window/size/height=270
 window/size/test_width=960
 window/size/test_height=540
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [physics]
 
@@ -26,4 +28,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+2d/snapping/use_gpu_pixel_snap=true
 environment/default_environment="res://default_env.tres"
