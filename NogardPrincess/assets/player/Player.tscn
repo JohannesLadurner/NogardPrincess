@@ -9,6 +9,16 @@ animations = [ {
 "loop": true,
 "name": "idle",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -18,10 +28,11 @@ extents = Vector2( 8, 16 )
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 256.381, 230.298 )
 frames = SubResource( 1 )
-animation = "idle"
+animation = "jump"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 256.303, 230.32 )
 shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
