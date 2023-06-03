@@ -3,6 +3,7 @@ extends KinematicBody2D
 export var move_speed := 100
 export var jump_speed := 350
 export var gravity := 1000
+export var health := 1
 var velocity := Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
@@ -25,6 +26,7 @@ func _physics_process(delta: float) -> void:
 
 	# actually move the player
 	velocity = move_and_slide(velocity, Vector2.UP)
+	print(health)
 
 func _process(delta: float) -> void:
 	change_animation()
