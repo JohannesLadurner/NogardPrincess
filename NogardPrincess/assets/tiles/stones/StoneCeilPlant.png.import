@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/StoneBorder.png-88d31d786330b273acf2108307a1f873.stex"
+path="res://.import/StoneCeilPlant.png-efa4cc35db8f05656f6eca0460931ab6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/StoneBorder.png"
-dest_files=[ "res://.import/StoneBorder.png-88d31d786330b273acf2108307a1f873.stex" ]
+source_file="res://assets/tiles/stones/StoneCeilPlant.png"
+dest_files=[ "res://.import/StoneCeilPlant.png-efa4cc35db8f05656f6eca0460931ab6.stex" ]
 
 [params]
 

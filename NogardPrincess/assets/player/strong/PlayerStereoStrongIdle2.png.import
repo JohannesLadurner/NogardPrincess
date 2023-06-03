@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/StonePlant2Middle.png-538f2cbe8053c94838ca45ad7c6df197.stex"
+path="res://.import/PlayerStereoStrongIdle2.png-9ca51d4fe09c62167bd431d2cd5f8b03.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/StonePlant2Middle.png"
-dest_files=[ "res://.import/StonePlant2Middle.png-538f2cbe8053c94838ca45ad7c6df197.stex" ]
+source_file="res://assets/player/strong/PlayerStereoStrongIdle2.png"
+dest_files=[ "res://.import/PlayerStereoStrongIdle2.png-9ca51d4fe09c62167bd431d2cd5f8b03.stex" ]
 
 [params]
 

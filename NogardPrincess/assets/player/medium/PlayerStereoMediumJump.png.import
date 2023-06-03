@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/StoneCeilCrack.png-8a23cde906f3fae911826ee3331ae89f.stex"
+path="res://.import/PlayerStereoMediumJump.png-cd67c75f0a65d47b3b045799ce902541.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/StoneCeilCrack.png"
-dest_files=[ "res://.import/StoneCeilCrack.png-8a23cde906f3fae911826ee3331ae89f.stex" ]
+source_file="res://assets/player/medium/PlayerStereoMediumJump.png"
+dest_files=[ "res://.import/PlayerStereoMediumJump.png-cd67c75f0a65d47b3b045799ce902541.stex" ]
 
 [params]
 

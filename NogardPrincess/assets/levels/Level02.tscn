@@ -6,14 +6,15 @@
 [ext_resource path="res://assets/player/PlayerRookieIdle.png" type="Texture" id=4]
 [ext_resource path="res://assets/player/PlayerRookieJump.png" type="Texture" id=5]
 [ext_resource path="res://assets/player/PlayerRookieWalk2.png" type="Texture" id=6]
-[ext_resource path="res://assets/tiles/StonePlantBorder.png" type="Texture" id=7]
+[ext_resource path="res://assets/tiles/stones/StonePlantBorder.png" type="Texture" id=7]
 [ext_resource path="res://assets/tiles/Enemy.png" type="Texture" id=8]
-[ext_resource path="res://assets/tiles/StoneCrackBorder.png" type="Texture" id=9]
-[ext_resource path="res://assets/tiles/StoneBorder.png" type="Texture" id=10]
-[ext_resource path="res://assets/tiles/StoneMiddle.png" type="Texture" id=11]
+[ext_resource path="res://assets/tiles/stones/StoneCrackBorder.png" type="Texture" id=9]
+[ext_resource path="res://assets/tiles/stones/StoneBorder.png" type="Texture" id=10]
+[ext_resource path="res://assets/tiles/stones/StoneMiddle.png" type="Texture" id=11]
 [ext_resource path="res://assets/player/PlayerRookieWalk1.png" type="Texture" id=12]
-[ext_resource path="res://assets/tiles/StonePlantMiddle.png" type="Texture" id=13]
-[ext_resource path="res://assets/tiles/StonePlant2Middle.png" type="Texture" id=14]
+[ext_resource path="res://assets/tiles/stones/StonePlantMiddle.png" type="Texture" id=13]
+[ext_resource path="res://assets/tiles/stones/StonePlant2Middle.png" type="Texture" id=14]
+
 
 [sub_resource type="SpriteFrames" id=8]
 animations = [ {

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/StoneCrackBorder.png-125818d18d3f8615a7fa9df182b59283.stex"
+path="res://.import/PlayerStereoStrongJump.png-7a9efc0e74f7a79758fdb86cd38a4387.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/StoneCrackBorder.png"
-dest_files=[ "res://.import/StoneCrackBorder.png-125818d18d3f8615a7fa9df182b59283.stex" ]
+source_file="res://assets/player/strong/PlayerStereoStrongJump.png"
+dest_files=[ "res://.import/PlayerStereoStrongJump.png-7a9efc0e74f7a79758fdb86cd38a4387.stex" ]
 
 [params]
 
