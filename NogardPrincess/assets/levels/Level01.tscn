@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://assets/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tiles/stones/StonePlantMiddle.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://assets/tiles/Moos.png" type="Texture" id=9]
 [ext_resource path="res://assets/tiles/stones/StoneCeilCrack.png" type="Texture" id=10]
 [ext_resource path="res://assets/tiles/stones/StoneCeilPlant.png" type="Texture" id=11]
+[ext_resource path="res://assets/enemies/roaches/Roach.tscn" type="PackedScene" id=12]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -279,10 +280,7 @@ drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 
 [node name="Slime" parent="." instance=ExtResource( 8 )]
-position = Vector2( -256.239, 158.046 )
-
-[node name="Slime2" parent="." instance=ExtResource( 8 )]
-position = Vector2( -549.906, 144.712 )
+position = Vector2( -519.563, 141.667 )
 
 [node name="End" type="Area2D" parent="."]
 position = Vector2( -808.5, 88.2098 )
@@ -290,3 +288,6 @@ position = Vector2( -808.5, 88.2098 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="End"]
 position = Vector2( -1.01575, 6.9652 )
 shape = SubResource( 12 )
+
+[node name="Roach" parent="." instance=ExtResource( 12 )]
+position = Vector2( -254.792, 158.929 )

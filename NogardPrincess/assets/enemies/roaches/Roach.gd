@@ -13,13 +13,7 @@ var attack_delay = 100
 var readyToAttack = true
 
 func _ready():
-	if get_tree().get_current_scene().get_name() == "Level01" or get_tree().get_current_scene().get_name() == "Level02": 
-		color = "pink"
-	if get_tree().get_current_scene().get_name() == "Level03" or get_tree().get_current_scene().get_name() == "Level4":
-		color = "red"
-	if get_tree().get_current_scene().get_name() == "Level05" or get_tree().get_current_scene().get_name() == "Level06":
-		color = "purple"
-	$AnimatedSprite.play(color +"_dead")
+	$AnimatedSprite.play("dead")
 	$AnimatedSprite.connect("animation_finished", self, "animation_finished")
 	attack_timer.connect("timeout",self,"attack_delay_resetted")
 	attack_timer.wait_time = 3
@@ -28,10 +22,10 @@ func _ready():
 
 func _process(delta):
 	if health >= 2:
-		$AnimatedSprite.play(color + "_idle")
+		$AnimatedSprite.play("idle")
 		return
 		
-	if $AnimatedSprite.animation == color + "_awake":
+	if $AnimatedSprite.animation == "awake":
 		return
 		
 	player_position = player.position
@@ -39,11 +33,11 @@ func _process(delta):
 	if triggered or position.distance_to(player.position) < 50:
 		move_and_slide(target_position * move_speed)
 		if triggered == false:
-			$AnimatedSprite.play(color + "_awake")
+			$AnimatedSprite.play("awake")
 			triggered = true
 			return
 	
-	if $AnimatedSprite.animation == color +"_dead":
+	if $AnimatedSprite.animation == "dead":
 		return
 		
 	if player_position.x > position.x:
@@ -66,8 +60,8 @@ func attack():
 	readyToAttack = false
 	
 func animation_finished():
-	if $AnimatedSprite.animation == color + "_awake":
-		$AnimatedSprite.play(color + "_walk")
+	if $AnimatedSprite.animation == "awake":
+		$AnimatedSprite.play("walk")
 
 func get_damage():
 	health += 1
