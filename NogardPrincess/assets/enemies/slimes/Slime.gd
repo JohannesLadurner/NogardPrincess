@@ -7,13 +7,19 @@ var velocity := Vector2.ZERO
 var player_position
 export var triggered = false
 var health := 1
-
+var color
 var attack_timer = Timer.new()
 var attack_delay = 100
 var readyToAttack = true
 
 func _ready():
-	$AnimatedSprite.play("pink_dead")
+	if get_tree().get_current_scene().get_name() == "Level01" or get_tree().get_current_scene().get_name() == "Level02": 
+		color = "pink"
+	if get_tree().get_current_scene().get_name() == "Level03" or get_tree().get_current_scene().get_name() == "Level4":
+		color = "red"
+	if get_tree().get_current_scene().get_name() == "Level05" or get_tree().get_current_scene().get_name() == "Level06":
+		color = "purple"
+	$AnimatedSprite.play(color +"_dead")
 	$AnimatedSprite.connect("animation_finished", self, "animation_finished")
 	attack_timer.connect("timeout",self,"attack_delay_resetted")
 	attack_timer.wait_time = 3
@@ -22,10 +28,10 @@ func _ready():
 
 func _process(delta):
 	if health >= 2:
-		$AnimatedSprite.play("idle")
+		$AnimatedSprite.play(color + "_idle")
 		return
 		
-	if $AnimatedSprite.animation == "pink_awake":
+	if $AnimatedSprite.animation == color + "_awake":
 		return
 		
 	player_position = player.position
@@ -33,11 +39,11 @@ func _process(delta):
 	if triggered or position.distance_to(player.position) < 50:
 		move_and_slide(target_position * move_speed)
 		if triggered == false:
-			$AnimatedSprite.play("pink_awake")
+			$AnimatedSprite.play(color + "_awake")
 			triggered = true
 			return
 	
-	if $AnimatedSprite.animation == "pink_dead":
+	if $AnimatedSprite.animation == color +"_dead":
 		return
 		
 	if player_position.x > position.x:
@@ -61,8 +67,8 @@ func attack():
 	readyToAttack = false
 	
 func animation_finished():
-	if $AnimatedSprite.animation == "pink_awake":
-		$AnimatedSprite.play("pink_walk")
+	if $AnimatedSprite.animation == color + "_awake":
+		$AnimatedSprite.play(color + "_walk")
 
 func get_damage():
 	health += 1
