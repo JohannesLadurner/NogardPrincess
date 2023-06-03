@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Nogard Princess"
-run/main_scene="res://assets/levels/Level01.tscn"
+run/main_scene="res://assets/levels/DragonRoom.tscn"
 config/icon="res://icon.png"
 
 [display]

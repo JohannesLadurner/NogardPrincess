@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://assets/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tiles/stones/StonePlantMiddle.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://assets/tiles/stones/StoneCeilCrack.png" type="Texture" id=10]
 [ext_resource path="res://assets/tiles/stones/StoneCeilPlant.png" type="Texture" id=11]
 [ext_resource path="res://assets/enemies/roaches/Roach.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/enemies/princess/Princess.tscn" type="PackedScene" id=13]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -291,3 +292,7 @@ shape = SubResource( 12 )
 
 [node name="Roach" parent="." instance=ExtResource( 12 )]
 position = Vector2( -254.792, 158.929 )
+
+[node name="Princess" parent="." instance=ExtResource( 13 )]
+position = Vector2( 658.573, 91.8669 )
+scale = Vector2( 0.75, 0.75 )

@@ -9,6 +9,7 @@ onready var area := get_node("Area2D")
 var enemy
 var velocity := Vector2.ZERO
 onready var end = get_parent().get_node("End")
+onready var start = get_parent().get_node("Start")
 var attack_timer = Timer.new()
 var attack_delay = 100
 var readyToAttack = true
@@ -36,8 +37,10 @@ func _physics_process(delta: float) -> void:
 		if is_on_floor():
 			velocity.y = -jump_speed # negative Y is up in Godot
 			
-	if position.x < end.position.x:
-		changeScene()
+	if position.x < end.position.x && is_reverse == true:
+		changeSceneReverse()
+	elif position.x > start.position.x && is_reverse == false:
+		changeSceneForward()
 
 	if Input.is_action_pressed("attack"):
 		attack()
@@ -78,8 +81,9 @@ func change_animation():
 			$AnimatedSprite.play("walk")
 		else:
 			$AnimatedSprite.play("idle")
-
-func changeScene():
+func changeSceneForward():
+	pass
+func changeSceneReverse():
 	if get_tree().get_current_scene().get_name() == "Level01": 
 		get_tree().change_scene("res://assets/levels/Level02.tscn")
 	elif get_tree().get_current_scene().get_name() == "Level02": 
@@ -92,6 +96,8 @@ func changeScene():
 		get_tree().change_scene("res://assets/levels/Level06.tscn")
 	elif get_tree().get_current_scene().get_name() == "Level06": 
 		get_tree().change_scene("res://assets/levels/Level06.tscn")
+	elif get_tree().get_current_scene().get_name() == "DragonRoom": 
+		get_tree().change_scene("res://assets/levels/Level01.tscn")
 
 func attack():
 	if $AnimatedSprite.animation == "attack":
