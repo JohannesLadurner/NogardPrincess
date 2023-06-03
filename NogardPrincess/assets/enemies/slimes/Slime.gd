@@ -6,6 +6,7 @@ export var gravity := 3000
 var velocity := Vector2.ZERO
 var player_position
 export var triggered = false
+var health := 1
 
 var attack_timer = Timer.new()
 var attack_delay = 100
@@ -20,6 +21,10 @@ func _ready():
 	add_child(attack_timer)
 
 func _process(delta):
+	if health >= 2:
+		$AnimatedSprite.play("idle")
+		return
+		
 	if $AnimatedSprite.animation == "pink_awake":
 		return
 		
@@ -58,3 +63,6 @@ func attack():
 func animation_finished():
 	if $AnimatedSprite.animation == "pink_awake":
 		$AnimatedSprite.play("pink_walk")
+
+func get_damage():
+	health += 1

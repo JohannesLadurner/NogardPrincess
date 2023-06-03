@@ -4,8 +4,23 @@ export var move_speed := 100
 export var jump_speed := 350
 export var gravity := 1000
 export var health := 1
+onready var area := get_node("Area2D")
+var enemy
 var velocity := Vector2.ZERO
 onready var end = get_parent().get_node("End")
+var attack_timer = Timer.new()
+var attack_delay = 100
+var readyToAttack = true
+
+func _ready():
+	$AnimatedSprite.play("idle")
+	$AnimatedSprite.connect("animation_finished", self, "animation_finished")
+	area.connect("area_enter", self, "_on_collision")
+	attack_timer.connect("timeout",self,"attack_delay_resetted")
+	attack_timer.wait_time = 3
+	attack_timer.one_shot = true
+	add_child(attack_timer)
+
 func _physics_process(delta: float) -> void:
 	# reset horizontal velocity
 	velocity.x = 0
@@ -22,6 +37,10 @@ func _physics_process(delta: float) -> void:
 			
 	if position.x < end.position.x:
 		changeScene()
+
+	if Input.is_action_pressed("attack"):
+		attack()
+		
 	# apply gravity
 	# player always has downward velocity
 	velocity.y += gravity * delta
@@ -34,11 +53,14 @@ func _process(delta: float) -> void:
 	change_animation()
 
 func change_animation():
+	if $AnimatedSprite.animation == "attack":
+		return
 	# face left or right
 	if velocity.x > 0:
 		$AnimatedSprite.flip_h = true
 		$RightCollisionShape.disabled = false
 		$LeftCollisionShape.disabled = true
+		
 	elif velocity.x < 0:
 		$AnimatedSprite.flip_h = false
 		$RightCollisionShape.disabled = true
@@ -66,3 +88,15 @@ func changeScene():
 		get_tree().change_scene("res://assets/levels/Level06.tscn")
 	elif get_tree().get_current_scene().get_name() == "Level06": 
 		get_tree().change_scene("res://assets/levels/Level06.tscn")
+
+func attack():
+	if $AnimatedSprite.animation == "attack":
+		return
+	$AnimatedSprite.play("attack")
+	for enemy in get_node("Area2D").get_overlapping_areas():
+		enemy.get_parent().get_damage()
+		
+func animation_finished():
+	if $AnimatedSprite.animation == "attack":
+		$AnimatedSprite.play("idle")
+
