@@ -32,11 +32,13 @@ func _process(delta: float) -> void:
 func change_animation():
 	# face left or right
 	if velocity.x > 0:
-		$AnimatedSprite.flip_h = false
-	elif velocity.x < 0:
 		$AnimatedSprite.flip_h = true
+	elif velocity.x < 0:
+		$AnimatedSprite.flip_h = false
 	if velocity.y < 0: # negative Y is up
-		$AnimatedSprite.play("jump")
+		$AnimatedSprite.play("jumpUp")
+	elif velocity.y > 0:
+		$AnimatedSprite.play("jumpDown")
 	else:
 		if velocity.x != 0:
 			$AnimatedSprite.play("walk")

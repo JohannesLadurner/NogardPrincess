@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Block6.png-1c64b737f0c9ed0dd775445adc4c0f1b.stex"
+path="res://.import/PlayerRookieIdle.png-65d9a01cc5bb8690b8cada44e91feaa7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/Block6.png"
-dest_files=[ "res://.import/Block6.png-1c64b737f0c9ed0dd775445adc4c0f1b.stex" ]
+source_file="res://assets/player/PlayerRookieIdle.png"
+dest_files=[ "res://.import/PlayerRookieIdle.png-65d9a01cc5bb8690b8cada44e91feaa7.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
