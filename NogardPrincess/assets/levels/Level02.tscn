@@ -17,6 +17,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 [sub_resource type="SpriteFrames" id=8]
 animations = [ {
 "frames": [ ExtResource( 8 ) ],
