@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tiles/stones/StonePlantMiddle.png" type="Texture" id=2]
@@ -254,6 +254,9 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 } ]
 10/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 8.04926, 17.4372 )
+
 [node name="Level01" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -280,3 +283,10 @@ position = Vector2( -256.239, 158.046 )
 
 [node name="Slime2" parent="." instance=ExtResource( 8 )]
 position = Vector2( -549.906, 144.712 )
+
+[node name="End" type="Area2D" parent="."]
+position = Vector2( -808.5, 88.2098 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="End"]
+position = Vector2( -1.01575, 6.9652 )
+shape = SubResource( 12 )

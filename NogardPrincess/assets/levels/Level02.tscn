@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/enemies/slimes/Slime.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/player/Player.tscn" type="PackedScene" id=2]
@@ -230,6 +230,9 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 } ]
 9/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 6.98856, 17.6307 )
+
 [node name="Level02" type="Node2D"]
 
 [node name="Slime2" parent="." instance=ExtResource( 1 )]
@@ -258,3 +261,10 @@ editor_draw_drag_margin = true
 
 [node name="Slime" parent="." instance=ExtResource( 1 )]
 position = Vector2( -64.545, 80.1091 )
+
+[node name="End" type="Area2D" parent="."]
+position = Vector2( -359.1, 153.207 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="End"]
+position = Vector2( -2.33966, 6.31705 )
+shape = SubResource( 11 )

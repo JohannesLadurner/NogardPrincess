@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://assets/tiles/wood/WoodBorder.png" type="Texture" id=1]
 [ext_resource path="res://assets/tiles/wood/WoodCeil.png" type="Texture" id=2]
@@ -330,6 +330,9 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 } ]
 14/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 9.03223, 38.6914 )
+
 [node name="Level03" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 9 )]
@@ -355,3 +358,10 @@ tile_data = PoolIntArray( -655346, 14, 0, -589810, 14, 0, -589809, 1610612750, 0
 
 [node name="Slime" parent="." instance=ExtResource( 15 )]
 position = Vector2( -232.495, 80.6046 )
+
+[node name="End" type="Area2D" parent="."]
+position = Vector2( -807.242, 10.5225 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="End"]
+position = Vector2( -1.14709, 29.5373 )
+shape = SubResource( 15 )
