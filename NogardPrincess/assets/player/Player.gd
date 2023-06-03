@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+export var is_reverse = false
 export var move_speed := 100
 export var jump_speed := 350
 export var gravity := 1000
