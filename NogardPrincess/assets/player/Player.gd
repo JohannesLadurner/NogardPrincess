@@ -61,17 +61,17 @@ func change_animation():
 		return
 	# face left or right
 	if velocity.x > 0:
-		$AnimatedSprite.flip_h = true
-		$RightCollisionShape.disabled = false
-		$LeftCollisionShape.disabled = true
-		$Area2D/RightAreaCollision.disabled = true
-		$Area2D/LeftAreaCollision.disabled = false
+		$AnimatedSprite.flip_h = is_reverse
+		$RightCollisionShape.disabled = !is_reverse
+		$LeftCollisionShape.disabled = is_reverse
+		$Area2D/RightAreaCollision.disabled = is_reverse
+		$Area2D/LeftAreaCollision.disabled = !is_reverse
 	elif velocity.x < 0:
-		$AnimatedSprite.flip_h = false
-		$RightCollisionShape.disabled = true
-		$LeftCollisionShape.disabled = false
-		$Area2D/RightAreaCollision.disabled = false
-		$Area2D/LeftAreaCollision.disabled = true
+		$AnimatedSprite.flip_h = !is_reverse
+		$RightCollisionShape.disabled = is_reverse
+		$LeftCollisionShape.disabled = !is_reverse
+		$Area2D/RightAreaCollision.disabled = !is_reverse
+		$Area2D/LeftAreaCollision.disabled = is_reverse
 	if velocity.y < 0: # negative Y is up
 		$AnimatedSprite.play("jumpUp")
 	elif velocity.y > 0:
