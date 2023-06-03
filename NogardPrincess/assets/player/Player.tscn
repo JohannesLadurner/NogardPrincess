@@ -47,12 +47,6 @@ animation = "jumpDown"
 position = Vector2( -4, 2.5 )
 shape = SubResource( 2 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-editor_draw_drag_margin = true
-
 [node name="RightCollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2( 4, 2.5 )
 shape = SubResource( 3 )
