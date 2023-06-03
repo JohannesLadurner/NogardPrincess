@@ -1,0 +1,75 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/enemies/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://assets/player/Player.gd" type="Script" id=2]
+[ext_resource path="res://assets/player/PlayerRookieIdle2.png" type="Texture" id=3]
+[ext_resource path="res://assets/player/PlayerRookieIdle.png" type="Texture" id=4]
+[ext_resource path="res://assets/player/PlayerRookieJump.png" type="Texture" id=5]
+[ext_resource path="res://assets/player/PlayerRookieWalk2.png" type="Texture" id=6]
+[ext_resource path="res://assets/tiles/Enemy.png" type="Texture" id=8]
+[ext_resource path="res://assets/player/PlayerRookieWalk1.png" type="Texture" id=12]
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 3.18584, 16 )
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "jumpUp",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "jumpDown",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "idle",
+"speed": 4.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 5, 13 )
+
+[node name="level02" type="Node2D"]
+
+[node name="Enemy" type="KinematicBody2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemy"]
+frames = SubResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+shape = SubResource( 9 )
+
+[node name="Player" type="KinematicBody2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
+frames = SubResource( 10 )
+animation = "jumpDown"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2( -1.85283, 2.89231 )
+shape = SubResource( 11 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+editor_draw_drag_margin = true
