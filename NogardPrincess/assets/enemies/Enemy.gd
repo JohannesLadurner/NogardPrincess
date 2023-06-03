@@ -12,6 +12,7 @@ var attack_delay = 100
 var readyToAttack = true
 
 func _ready():
+	$AnimatedSprite.play("dead")
 	attack_timer.connect("timeout",self,"attack_delay_resetted")
 	attack_timer.wait_time = 3
 	attack_timer.one_shot = true
