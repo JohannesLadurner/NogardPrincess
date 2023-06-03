@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-export var is_reverse = false
 export var move_speed := 100
 export var jump_speed := 350
 export var gravity := 1000
@@ -37,9 +36,9 @@ func _physics_process(delta: float) -> void:
 		if is_on_floor():
 			velocity.y = -jump_speed # negative Y is up in Godot
 			
-	if position.x < end.position.x && is_reverse == true:
+	if position.x < end.position.x && GlobalProperties.is_reverse:
 		changeSceneReverse()
-	elif position.x > start.position.x && is_reverse == false:
+	elif position.x > start.position.x && !GlobalProperties.is_reverse:
 		changeSceneForward()
 
 	if Input.is_action_pressed("attack"):
@@ -61,17 +60,17 @@ func change_animation():
 		return
 	# face left or right
 	if velocity.x > 0:
-		$AnimatedSprite.flip_h = is_reverse
-		$RightCollisionShape.disabled = !is_reverse
-		$LeftCollisionShape.disabled = is_reverse
-		$Area2D/RightAreaCollision.disabled = is_reverse
-		$Area2D/LeftAreaCollision.disabled = !is_reverse
+		$AnimatedSprite.flip_h = GlobalProperties.is_reverse
+		$RightCollisionShape.disabled = !GlobalProperties.is_reverse
+		$LeftCollisionShape.disabled = GlobalProperties.is_reverse
+		$Area2D/RightAreaCollision.disabled = GlobalProperties.is_reverse
+		$Area2D/LeftAreaCollision.disabled = !GlobalProperties.is_reverse
 	elif velocity.x < 0:
-		$AnimatedSprite.flip_h = !is_reverse
-		$RightCollisionShape.disabled = is_reverse
-		$LeftCollisionShape.disabled = !is_reverse
-		$Area2D/RightAreaCollision.disabled = !is_reverse
-		$Area2D/LeftAreaCollision.disabled = is_reverse
+		$AnimatedSprite.flip_h = !GlobalProperties.is_reverse
+		$RightCollisionShape.disabled = GlobalProperties.is_reverse
+		$LeftCollisionShape.disabled = !GlobalProperties.is_reverse
+		$Area2D/RightAreaCollision.disabled = !GlobalProperties.is_reverse
+		$Area2D/LeftAreaCollision.disabled = GlobalProperties.is_reverse
 	if velocity.y < 0: # negative Y is up
 		$AnimatedSprite.play("jumpUp")
 	elif velocity.y > 0:
@@ -81,8 +80,12 @@ func change_animation():
 			$AnimatedSprite.play("walk")
 		else:
 			$AnimatedSprite.play("idle")
+			
 func changeSceneForward():
-	pass
+	if get_tree().get_current_scene().get_name() == "DragonRoom":
+		GlobalProperties.is_reverse = true
+		get_tree().change_scene("res://assets/levels/Level01.tscn")
+	
 func changeSceneReverse():
 	if get_tree().get_current_scene().get_name() == "Level01": 
 		get_tree().change_scene("res://assets/levels/Level02.tscn")
