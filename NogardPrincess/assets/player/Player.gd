@@ -35,8 +35,12 @@ func change_animation():
 	# face left or right
 	if velocity.x > 0:
 		$AnimatedSprite.flip_h = true
+		$RightCollisionShape.disabled = false
+		$LeftCollisionShape.disabled = true
 	elif velocity.x < 0:
 		$AnimatedSprite.flip_h = false
+		$RightCollisionShape.disabled = true
+		$LeftCollisionShape.disabled = false
 	if velocity.y < 0: # negative Y is up
 		$AnimatedSprite.play("jumpUp")
 	elif velocity.y > 0:
