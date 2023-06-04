@@ -22,6 +22,7 @@ func _ready():
 		position = start.position
 	else:
 		position = end.position
+	
 	$AnimatedSprite.play(GlobalProperties.get_skin()+"idle")
 	$AnimatedSprite.connect("animation_finished", self, "animation_finished")
 	area.connect("area_enter", self, "_on_collision")
