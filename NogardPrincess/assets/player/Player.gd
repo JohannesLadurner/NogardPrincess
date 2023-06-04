@@ -141,7 +141,8 @@ func changeSceneReverse():
 	elif get_tree().get_current_scene().get_name() == "Level05": 
 		get_tree().change_scene("res://assets/levels/Level06.tscn")
 	elif get_tree().get_current_scene().get_name() == "Level06":
-		GlobalProperties.is_reverse = true
+		GlobalProperties.is_reverse = false
+		get_tree().reload_current_scene()
 	elif get_tree().get_current_scene().get_name() == "DragonRoom": 
 		get_tree().change_scene("res://assets/levels/Level01.tscn")
 		
@@ -153,6 +154,9 @@ func reset():
 		GlobalProperties.player_health -= 1
 
 func update_health_ui():
+	if GlobalProperties.player_health <= 0 or GlobalProperties.player_health >= GlobalProperties.player_max_health:
+		return
+	
 	for i in range(1, GlobalProperties.player_health):
 		lives.get_child(i).visible = true
 	for i in range(GlobalProperties.player_health, 5):
