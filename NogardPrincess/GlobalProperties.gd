@@ -1,6 +1,6 @@
 extends Node
 
-export var is_reverse = false
+export var is_reverse = true
 export var dialogMode = false
 export var player_health = 1
 export var player_max_health = 5

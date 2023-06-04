@@ -140,8 +140,8 @@ func changeSceneReverse():
 		get_tree().change_scene("res://assets/levels/Level05.tscn")
 	elif get_tree().get_current_scene().get_name() == "Level05": 
 		get_tree().change_scene("res://assets/levels/Level06.tscn")
-	elif get_tree().get_current_scene().get_name() == "Level06": 
-		get_tree().change_scene("res://assets/levels/Level06.tscn")
+	elif get_tree().get_current_scene().get_name() == "Level06":
+		GlobalProperties.is_reverse = true
 	elif get_tree().get_current_scene().get_name() == "DragonRoom": 
 		get_tree().change_scene("res://assets/levels/Level01.tscn")
 		
