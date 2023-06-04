@@ -274,7 +274,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="Cage" type="AnimatedSprite" parent="."]
 position = Vector2( 652.136, 89.3067 )
 scale = Vector2( 0.869744, 0.869744 )
 frames = SubResource( 14 )
