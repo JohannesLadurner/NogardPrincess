@@ -127,9 +127,10 @@ func changeSceneForward():
 	elif get_tree().get_current_scene().get_name() == "Level4": 
 		get_tree().change_scene("res://assets/levels/Level03.tscn")
 	elif get_tree().get_current_scene().get_name() == "Level03": 
+		GlobalProperties.endGame = true
 		get_tree().change_scene("res://assets/levels/Level02.tscn")
 	elif get_tree().get_current_scene().get_name() == "Level02": 
-		get_tree().change_scene("res://assets/levels/Level01.tscn")
+		get_tree().change_scene("res://assets/levels/Level01.tscn") 
 	
 func changeSceneReverse():
 	if get_tree().get_current_scene().get_name() == "Level01": 

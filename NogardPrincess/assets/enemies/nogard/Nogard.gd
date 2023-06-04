@@ -4,6 +4,12 @@ onready var player = get_parent().get_node("Player")
 export var triggered = false
 
 func _ready():
+	if GlobalProperties.endGame:
+		$AnimatedSprite.play("idle")
+		get_parent().get_node("Fairy").visible = false
+		get_parent().get_node("Speechbubble/Label").visible = false
+		get_parent().get_node("Speechbubble").visible = false
+		return
 	$AnimatedSprite.play("dead")
 	$AnimatedSprite.connect("animation_finished", self, "animation_finished")
 	if !GlobalProperties.is_reverse:
@@ -11,6 +17,9 @@ func _ready():
 		
 	
 func _process(delta):
+	if GlobalProperties.endGame:
+		return
+		
 	if !GlobalProperties.is_reverse:
 		return
 	
