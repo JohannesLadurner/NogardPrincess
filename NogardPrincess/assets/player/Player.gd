@@ -152,7 +152,11 @@ func changeSceneReverse():
 		get_tree().change_scene("res://assets/levels/Level01.tscn")
 		
 func reset():
-	get_tree().reload_current_scene()
+	if GlobalProperties.is_reverse:
+		position = start.position
+	else:
+		position = end.position
+		
 	if GlobalProperties.is_reverse:
 		GlobalProperties.player_health += 1
 	else:
