@@ -9,6 +9,9 @@ var enemy
 var velocity := Vector2.ZERO
 onready var end = get_parent().get_node("End")
 onready var start = get_parent().get_node("Start")
+onready var speechbubble = get_parent().get_node("Speechbubble")
+var dialog_timer = Timer.new()
+var readyToContinueDialog = true
 var attack_timer = Timer.new()
 var attack_delay = 100
 var readyToAttack = true
@@ -17,6 +20,11 @@ func _ready():
 	$AnimatedSprite.play("idle")
 	$AnimatedSprite.connect("animation_finished", self, "animation_finished")
 	area.connect("area_enter", self, "_on_collision")
+	dialog_timer.connect("timeout", self, "dialog_delay_resetted")
+	dialog_timer.wait_time = 2
+	dialog_timer.one_shot = true
+	add_child(dialog_timer)
+	
 	attack_timer.connect("timeout",self,"attack_delay_resetted")
 	attack_timer.wait_time = 3
 	attack_timer.one_shot = true
@@ -25,7 +33,21 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	# reset horizontal velocity
 	velocity.x = 0
-
+	
+	if GlobalProperties.dialogMode == true:
+		var text = GlobalProperties.get_dialog_text()
+		if text == null:
+			speechbubble.visible = false
+			GlobalProperties.dialogMode = false
+			return
+		speechbubble.visible = true
+		speechbubble.get_child(0).text = GlobalProperties.get_dialog_text()
+		if Input.is_action_pressed("attack") and readyToContinueDialog:
+			GlobalProperties.continueDialog()
+			readyToContinueDialog = false
+			dialog_timer.start()
+		return
+				
 	# set horizontal velocity
 	if Input.is_action_pressed("move_right"):
 		velocity.x += move_speed
@@ -84,7 +106,9 @@ func change_animation():
 func changeSceneForward():
 	if get_tree().get_current_scene().get_name() == "DragonRoom":
 		GlobalProperties.is_reverse = true
+		GlobalProperties.dialogMode = true
 		get_tree().change_scene("res://assets/levels/Level01.tscn")
+		
 	
 func changeSceneReverse():
 	if get_tree().get_current_scene().get_name() == "Level01": 
@@ -112,4 +136,7 @@ func attack():
 func animation_finished():
 	if $AnimatedSprite.animation == "attack":
 		$AnimatedSprite.play("idle")
-
+		
+func dialog_delay_resetted():
+	readyToContinueDialog = true
+	

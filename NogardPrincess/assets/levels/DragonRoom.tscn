@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://assets/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tiles/stones/StoneCeilPlant.png" type="Texture" id=2]
@@ -212,6 +212,9 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 20, 40 )
 
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 10, 62.9599 )
+
 [node name="DragonRoom" type="Node2D"]
 
 [node name="Princess" parent="." instance=ExtResource( 10 )]
@@ -231,11 +234,10 @@ position = Vector2( -54.7136, 164.557 )
 position = Vector2( 10000, 10000 )
 shape = SubResource( 10 )
 
-[node name="Start" type="Area2D" parent="."]
-position = Vector2( 660, 88 )
+[node name="CageArea" type="Area2D" parent="."]
+position = Vector2( 665, 87 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Start"]
-position = Vector2( 6, 1 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CageArea"]
 shape = SubResource( 11 )
 
 [node name="Nogard" parent="." instance=ExtResource( 12 )]
@@ -258,3 +260,9 @@ limit_bottom = 225
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 editor_draw_drag_margin = true
+
+[node name="Start" type="Area2D" parent="."]
+position = Vector2( 800, 140 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Start"]
+shape = SubResource( 12 )
