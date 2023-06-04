@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 onready var player = get_parent().get_node("Player")
-var move_speed = 50
+var move_speed = 30
 export var gravity := 3000
 var velocity := Vector2.ZERO
 var player_position
@@ -19,7 +19,11 @@ func _ready():
 		color = "red"
 	if get_tree().get_current_scene().get_name() == "Level05" or get_tree().get_current_scene().get_name() == "Level06":
 		color = "purple"
-	$AnimatedSprite.play(color +"_dead")
+	
+	if GlobalProperties.is_reverse:
+		$AnimatedSprite.play(color +"_dead")
+	else:
+		$AnimatedSprite.play(color +"_idle")
 	$AnimatedSprite.connect("animation_finished", self, "animation_finished")
 	attack_timer.connect("timeout",self,"attack_delay_resetted")
 	attack_timer.wait_time = 3
@@ -27,11 +31,15 @@ func _ready():
 	add_child(attack_timer)
 
 func _process(delta):
-	if health >= 2:
+	if health >= 2 and GlobalProperties.is_reverse:
 		$AnimatedSprite.play(color + "_idle")
 		return
 		
 	if $AnimatedSprite.animation == color + "_awake":
+		return
+		
+	elif health <= 0 and !GlobalProperties.is_reverse:
+		$AnimatedSprite.play(color + "_dead")
 		return
 		
 	player_position = player.position
@@ -39,10 +47,15 @@ func _process(delta):
 	if triggered or position.distance_to(player.position) < 50:
 		move_and_slide(target_position * move_speed)
 		if triggered == false:
-			$AnimatedSprite.play(color + "_awake")
-			triggered = true
-			return
-	
+			if GlobalProperties.is_reverse:
+				$AnimatedSprite.play(color + "_awake")
+				triggered = true
+				return
+			else:
+				$AnimatedSprite.play(color + "_walk")
+				triggered = true
+				return
+				
 	if $AnimatedSprite.animation == color +"_dead":
 		return
 		
@@ -67,7 +80,13 @@ func attack():
 	
 func animation_finished():
 	if $AnimatedSprite.animation == color + "_awake":
-		$AnimatedSprite.play(color + "_walk")
+		if GlobalProperties.is_reverse:
+			$AnimatedSprite.play(color + "_walk")
+		else:
+			$AnimatedSprite.play(color + "_dead")
 
 func get_damage():
-	health += 1
+	if GlobalProperties.is_reverse:
+		health += 1
+	else:
+		health -= 1

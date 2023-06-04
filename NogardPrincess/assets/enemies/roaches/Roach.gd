@@ -1,19 +1,21 @@
 extends KinematicBody2D
 
 onready var player = get_parent().get_node("Player")
-var move_speed = 50
+var move_speed = 30
 export var gravity := 3000
 var velocity := Vector2.ZERO
 var player_position
 export var triggered = false
 var health := 1
-var color
 var attack_timer = Timer.new()
 var attack_delay = 100
 var readyToAttack = true
 
 func _ready():
-	$AnimatedSprite.play("dead")
+	if GlobalProperties.is_reverse:
+		$AnimatedSprite.play("dead")
+	else:
+		$AnimatedSprite.play("idle")
 	$AnimatedSprite.connect("animation_finished", self, "animation_finished")
 	attack_timer.connect("timeout",self,"attack_delay_resetted")
 	attack_timer.wait_time = 3
@@ -21,11 +23,15 @@ func _ready():
 	add_child(attack_timer)
 
 func _process(delta):
-	if health >= 2:
+	if health >= 2 and GlobalProperties.is_reverse:
 		$AnimatedSprite.play("idle")
 		return
 		
 	if $AnimatedSprite.animation == "awake":
+		return
+		
+	elif health <= 0 and !GlobalProperties.is_reverse:
+		$AnimatedSprite.play("dead")
 		return
 		
 	player_position = player.position
@@ -33,10 +39,15 @@ func _process(delta):
 	if triggered or position.distance_to(player.position) < 50:
 		move_and_slide(target_position * move_speed)
 		if triggered == false:
-			$AnimatedSprite.play("awake")
-			triggered = true
-			return
-	
+			if GlobalProperties.is_reverse:
+				$AnimatedSprite.play("awake")
+				triggered = true
+				return
+			else:
+				$AnimatedSprite.play("walk")
+				triggered = true
+				return
+				
 	if $AnimatedSprite.animation == "dead":
 		return
 		
@@ -61,7 +72,13 @@ func attack():
 	
 func animation_finished():
 	if $AnimatedSprite.animation == "awake":
-		$AnimatedSprite.play("walk")
+		if GlobalProperties.is_reverse:
+			$AnimatedSprite.play("walk")
+		else:
+			$AnimatedSprite.play("dead")
 
 func get_damage():
-	health += 1
+	if GlobalProperties.is_reverse:
+		health += 1
+	else:
+		health -= 1
