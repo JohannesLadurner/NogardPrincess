@@ -65,7 +65,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			velocity.y = -jump_speed # negative Y is up in Godot
-			
+			$Jump.play()
 	if position.x < end.position.x && GlobalProperties.is_reverse:
 		changeSceneReverse()
 	elif position.x > start.position.x && !GlobalProperties.is_reverse:
@@ -115,6 +115,7 @@ func change_animation():
 			
 func changeSceneForward():
 	if get_tree().get_current_scene().get_name() == "DragonRoom":
+		$Feary.play()
 		GlobalProperties.is_reverse = true
 		GlobalProperties.dialogMode = true
 		get_tree().change_scene("res://assets/levels/Level01.tscn")
