@@ -21,11 +21,6 @@ animations = [ {
 "name": "purple_dead",
 "speed": 3.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 12 ) ],
-"loop": false,
-"name": "purple_awake",
-"speed": 1.0
-}, {
 "frames": [ ExtResource( 12 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "purple_walk",
@@ -33,17 +28,7 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": true,
-"name": "red_walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
-"loop": true,
 "name": "red_idle",
-"speed": 1.0
-}, {
-"frames": [ ExtResource( 12 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "purple_idle",
 "speed": 1.0
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 13 ) ],
@@ -56,6 +41,11 @@ animations = [ {
 "name": "pink_walk",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "red_walk",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 3 ), ExtResource( 1 ) ],
 "loop": false,
 "name": "pink_awake",
@@ -64,6 +54,11 @@ animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "pink_idle",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "purple_idle",
 "speed": 1.0
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 2 ) ],
@@ -75,12 +70,17 @@ animations = [ {
 "loop": false,
 "name": "red_awake",
 "speed": 1.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 12 ) ],
+"loop": false,
+"name": "purple_awake",
+"speed": 1.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 12, 10 )
+extents = Vector2( 14, 10 )
 
 [node name="Slime" type="KinematicBody2D"]
 script = ExtResource( 4 )
