@@ -1,6 +1,6 @@
 extends Node
 
-export var is_reverse = false
+export var is_reverse = true
 export var dialogMode = false
 export var player_health = 1
 export var player_max_health = 5
@@ -11,8 +11,8 @@ export var dialogFairy1 = ["One shall not solely walk\non well-known paths.",
 "You shall try again,\nAnn-Bee, and try to pass."]
 
 export var dialogFairy2 = ["You did well!", 
-"Now you shall go and fulfill your destiny.",
-"Remember: Even the smallest froggie can change the course of the future!"]
+"Now you shall go and\nfulfill your destiny.",
+"Remember: Even the smallest\nfroggie can change the\ncourse of the future!"]
 
 export var player_skin = 0
 var skins = ["stereo_strong_", "stereo_medium_", "rookie_", "medium_", "strong_"]
