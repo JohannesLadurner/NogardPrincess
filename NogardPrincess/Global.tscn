@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://GlobalProperties.gd" type="Script" id=1]
+[ext_resource path="res://assets/music/background.wav" type="AudioStream" id=2]
+
+[node name="Global" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Background" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
