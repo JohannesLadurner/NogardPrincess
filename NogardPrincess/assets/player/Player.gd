@@ -67,7 +67,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			velocity.y = -jump_speed # negative Y is up in Godot
-			$Jump.play()
+			
+			
 	if position.x < end.position.x && GlobalProperties.is_reverse:
 		changeSceneReverse()
 	elif position.x > start.position.x && !GlobalProperties.is_reverse:
