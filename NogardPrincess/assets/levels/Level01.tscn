@@ -352,13 +352,12 @@ position = Vector2( 855.843, 141.497 )
 scale = Vector2( 0.835715, 0.835715 )
 frames = SubResource( 12 )
 animation = "idle"
-frame = 1
 playing = true
 
 [node name="Cage" parent="." instance=ExtResource( 14 )]
 
 [node name="Slime" parent="." instance=ExtResource( 8 )]
-position = Vector2( -556.627, 141.159 )
+position = Vector2( -553.805, 144.334 )
 
 [node name="Nogard" parent="." instance=ExtResource( 21 )]
 position = Vector2( 330.299, 143.101 )

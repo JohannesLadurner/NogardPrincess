@@ -18,8 +18,8 @@
 [ext_resource path="res://assets/tiles/stones/StoneCeilPlant.png" type="Texture" id=16]
 [ext_resource path="res://assets/tiles/stones/StoneCrackBorder.png" type="Texture" id=17]
 [ext_resource path="res://assets/enemies/slimes/Slime.tscn" type="PackedScene" id=18]
-[ext_resource path="res://assets/backgrounds/BackgroundGrass2.png" type="Texture" id=19]
-[ext_resource path="res://assets/backgrounds/BackgroundGrass.png" type="Texture" id=20]
+[ext_resource path="res://assets/backgrounds/BackgroundStars2.png" type="Texture" id=19]
+[ext_resource path="res://assets/backgrounds/BackgroundStars.png" type="Texture" id=20]
 [ext_resource path="res://assets/hud/Heart.png" type="Texture" id=21]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -422,9 +422,9 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_left = -143.246
-margin_top = -193.911
+margin_top = -194.2
 margin_right = 306.754
-margin_bottom = 143.089
+margin_bottom = 142.8
 texture = ExtResource( 20 )
 stretch_mode = 1
 __meta__ = {

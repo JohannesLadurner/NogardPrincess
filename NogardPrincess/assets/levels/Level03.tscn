@@ -15,8 +15,8 @@
 [ext_resource path="res://assets/tiles/stones/StoneCeilPlant.png" type="Texture" id=13]
 [ext_resource path="res://assets/tiles/stones/StoneMiddle.png" type="Texture" id=14]
 [ext_resource path="res://assets/enemies/slimes/Slime.tscn" type="PackedScene" id=15]
-[ext_resource path="res://assets/backgrounds/BackgroundGrass2.png" type="Texture" id=16]
-[ext_resource path="res://assets/backgrounds/BackgroundGrass.png" type="Texture" id=17]
+[ext_resource path="res://assets/backgrounds/BackgroundStars2.png" type="Texture" id=16]
+[ext_resource path="res://assets/backgrounds/BackgroundStars.png" type="Texture" id=17]
 [ext_resource path="res://assets/hud/Heart.png" type="Texture" id=18]
 [ext_resource path="res://assets/enemies/roaches/Roach.tscn" type="PackedScene" id=19]
 
@@ -349,7 +349,7 @@ margin_left = -16.3739
 margin_top = -158.121
 margin_right = 383.626
 margin_bottom = 141.879
-texture = ExtResource( 17 )
+texture = ExtResource( 16 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -359,7 +359,7 @@ margin_left = -415.263
 margin_top = -158.299
 margin_right = -15.2626
 margin_bottom = 141.701
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -369,7 +369,7 @@ margin_left = -813.477
 margin_top = -158.299
 margin_right = -413.477
 margin_bottom = 141.701
-texture = ExtResource( 17 )
+texture = ExtResource( 16 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
