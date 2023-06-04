@@ -9,6 +9,7 @@ var enemy
 var velocity := Vector2.ZERO
 onready var end = get_parent().get_node("End")
 onready var start = get_parent().get_node("Start")
+onready var fall = get_parent().get_node("Fall")
 onready var speechbubble = get_parent().get_node("Speechbubble")
 var dialog_timer = Timer.new()
 var readyToContinueDialog = true
@@ -33,7 +34,8 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	# reset horizontal velocity
 	velocity.x = 0
-	
+	if health >= 5:
+		return 
 	if GlobalProperties.dialogMode == true:
 		var text = GlobalProperties.get_dialog_text()
 		if text == null:
@@ -62,7 +64,10 @@ func _physics_process(delta: float) -> void:
 		changeSceneReverse()
 	elif position.x > start.position.x && !GlobalProperties.is_reverse:
 		changeSceneForward()
-
+	
+	if position.y > fall.position.y:
+		reset()
+	
 	if Input.is_action_pressed("attack"):
 		attack()
 		
@@ -108,7 +113,16 @@ func changeSceneForward():
 		GlobalProperties.is_reverse = true
 		GlobalProperties.dialogMode = true
 		get_tree().change_scene("res://assets/levels/Level01.tscn")
-		
+	elif get_tree().get_current_scene().get_name() == "Level06": 
+		get_tree().change_scene("res://assets/levels/Level05.tscn")
+	elif get_tree().get_current_scene().get_name() == "Level05": 
+		get_tree().change_scene("res://assets/levels/Level4.tscn")
+	elif get_tree().get_current_scene().get_name() == "Level4": 
+		get_tree().change_scene("res://assets/levels/Level03.tscn")
+	elif get_tree().get_current_scene().get_name() == "Level03": 
+		get_tree().change_scene("res://assets/levels/Level02.tscn")
+	elif get_tree().get_current_scene().get_name() == "Level02": 
+		get_tree().change_scene("res://assets/levels/Level01.tscn")
 	
 func changeSceneReverse():
 	if get_tree().get_current_scene().get_name() == "Level01": 
@@ -125,6 +139,10 @@ func changeSceneReverse():
 		get_tree().change_scene("res://assets/levels/Level06.tscn")
 	elif get_tree().get_current_scene().get_name() == "DragonRoom": 
 		get_tree().change_scene("res://assets/levels/Level01.tscn")
+		
+func reset():
+	get_tree().reload_current_scene()
+	health -= 1
 
 func attack():
 	if $AnimatedSprite.animation == "attack":
