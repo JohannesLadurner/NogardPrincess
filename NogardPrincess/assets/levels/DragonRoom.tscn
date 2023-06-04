@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://assets/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tiles/stones/StoneCeilPlant.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://assets/cages/CageLocked.png" type="Texture" id=11]
 [ext_resource path="res://assets/enemies/nogard/Nogard.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/hud/Heart.png" type="Texture" id=13]
+[ext_resource path="res://assets/backgrounds/BackgroundCastle2.png" type="Texture" id=14]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -219,6 +220,39 @@ extents = Vector2( 10, 62.9599 )
 [sub_resource type="RectangleShape2D" id=13]
 
 [node name="DragonRoom" type="Node2D"]
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+margin_left = 837.648
+margin_top = -53.1643
+margin_right = 1237.65
+margin_bottom = 246.836
+texture = ExtResource( 14 )
+flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+margin_left = 443.242
+margin_top = -55.2553
+margin_right = 843.242
+margin_bottom = 244.745
+texture = ExtResource( 14 )
+flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 44.5097
+margin_top = -55.6371
+margin_right = 444.51
+margin_bottom = 244.363
+texture = ExtResource( 14 )
+flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Princess" parent="." instance=ExtResource( 10 )]
 position = Vector2( 660, 97 )
