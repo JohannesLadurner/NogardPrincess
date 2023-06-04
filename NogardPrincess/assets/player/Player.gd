@@ -47,6 +47,7 @@ func _physics_process(delta: float) -> void:
 		if text == null:
 			speechbubble.visible = false
 			GlobalProperties.dialogMode = false
+			GlobalProperties.continueDialog()
 			return
 		speechbubble.visible = true
 		speechbubble.get_child(0).text = GlobalProperties.get_dialog_text()
@@ -143,6 +144,7 @@ func changeSceneReverse():
 		get_tree().change_scene("res://assets/levels/Level06.tscn")
 	elif get_tree().get_current_scene().get_name() == "Level06":
 		GlobalProperties.is_reverse = false
+		GlobalProperties.dialogMode = true
 		get_tree().reload_current_scene()
 	elif get_tree().get_current_scene().get_name() == "DragonRoom": 
 		get_tree().change_scene("res://assets/levels/Level01.tscn")

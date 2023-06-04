@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://assets/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tiles/wood/WoodBorder2.png" type="Texture" id=2]
@@ -21,6 +21,9 @@
 [ext_resource path="res://assets/backgrounds/BackgroundStars2.png" type="Texture" id=19]
 [ext_resource path="res://assets/backgrounds/BackgroundStars.png" type="Texture" id=20]
 [ext_resource path="res://assets/hud/Heart.png" type="Texture" id=21]
+[ext_resource path="res://assets/enemies/fairy/FairyIdle2.png" type="Texture" id=22]
+[ext_resource path="res://assets/enemies/fairy/FairyIdle1.png" type="Texture" id=23]
+[ext_resource path="res://assets/speech/Speechbubble.tscn" type="PackedScene" id=24]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -407,6 +410,14 @@ extents = Vector2( 9.63525, 27.3045 )
 [sub_resource type="RectangleShape2D" id=19]
 extents = Vector2( 320.699, 11.853 )
 
+[sub_resource type="SpriteFrames" id=20]
+animations = [ {
+"frames": [ ExtResource( 23 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+} ]
+
 [node name="Level06" type="Node2D"]
 
 [node name="TextureRect2" type="TextureRect" parent="."]
@@ -509,3 +520,13 @@ texture = ExtResource( 21 )
 position = Vector2( 108, 15 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 21 )
+
+[node name="Speechbubble" parent="." instance=ExtResource( 24 )]
+position = Vector2( -454.27, -115.362 )
+flip_h = true
+
+[node name="Fairy" type="AnimatedSprite" parent="."]
+position = Vector2( -542.815, -80.2943 )
+frames = SubResource( 20 )
+animation = "idle"
+flip_h = true
