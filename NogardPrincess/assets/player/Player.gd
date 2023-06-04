@@ -22,7 +22,7 @@ func _ready():
 		position = start.position
 	else:
 		position = end.position
-	$AnimatedSprite.play("idle")
+	$AnimatedSprite.play(GlobalProperties.get_skin()+"idle")
 	$AnimatedSprite.connect("animation_finished", self, "animation_finished")
 	area.connect("area_enter", self, "_on_collision")
 	dialog_timer.connect("timeout", self, "dialog_delay_resetted")
@@ -88,7 +88,7 @@ func _process(delta: float) -> void:
 	change_animation()
 
 func change_animation():
-	if $AnimatedSprite.animation == "attack":
+	if $AnimatedSprite.animation == GlobalProperties.get_skin()+"attack":
 		return
 	# face left or right
 	if velocity.x > 0:
@@ -104,14 +104,14 @@ func change_animation():
 		$Area2D/RightAreaCollision.disabled = !GlobalProperties.is_reverse
 		$Area2D/LeftAreaCollision.disabled = GlobalProperties.is_reverse
 	if velocity.y < 0: # negative Y is up
-		$AnimatedSprite.play("jumpUp")
+		$AnimatedSprite.play(GlobalProperties.get_skin()+"jumpUp")
 	elif velocity.y > 0:
-		$AnimatedSprite.play("jumpDown")
+		$AnimatedSprite.play(GlobalProperties.get_skin()+"jumpDown")
 	else:
 		if velocity.x != 0:
-			$AnimatedSprite.play("walk")
+			$AnimatedSprite.play(GlobalProperties.get_skin()+"walk")
 		else:
-			$AnimatedSprite.play("idle")
+			$AnimatedSprite.play(GlobalProperties.get_skin()+"idle")
 			
 func changeSceneForward():
 	if get_tree().get_current_scene().get_name() == "DragonRoom":
@@ -164,17 +164,17 @@ func update_health_ui():
 		lives.get_child(i).visible = false
 
 func attack():
-	if $AnimatedSprite.animation == "attack":
+	if $AnimatedSprite.animation == GlobalProperties.get_skin()+"attack":
 		return
-	$AnimatedSprite.play("attack")
+	$AnimatedSprite.play(GlobalProperties.get_skin()+"attack")
 	for area in get_node("Area2D").get_overlapping_areas():
 		print(area.get_parent().has_method("get_damage"))
 		if area.get_parent().has_method("get_damage"):
 			area.get_parent().get_damage()
 		
 func animation_finished():
-	if $AnimatedSprite.animation == "attack":
-		$AnimatedSprite.play("idle")
+	if $AnimatedSprite.animation == GlobalProperties.get_skin()+"attack":
+		$AnimatedSprite.play(GlobalProperties.get_skin()+"idle")
 		
 func dialog_delay_resetted():
 	readyToContinueDialog = true
