@@ -1,7 +1,9 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://assets/enemies/slimes/Slime.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/backgrounds/BackgroundCastle2.png" type="Texture" id=3]
+[ext_resource path="res://assets/backgrounds/BackgroundCastle.png" type="Texture" id=4]
 [ext_resource path="res://assets/tiles/stones/StonePlantBorder.png" type="Texture" id=7]
 [ext_resource path="res://assets/tiles/stones/StoneCrackBorder.png" type="Texture" id=9]
 [ext_resource path="res://assets/tiles/stones/StoneBorder.png" type="Texture" id=10]
@@ -239,6 +241,39 @@ extents = Vector2( 7.58276, 18.192 )
 [sub_resource type="RectangleShape2D" id=13]
 
 [node name="Level02" type="Node2D"]
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+margin_left = 38.0
+margin_top = -25.5708
+margin_right = 438.0
+margin_bottom = 274.429
+texture = ExtResource( 3 )
+flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+margin_left = 399.494
+margin_top = -24.1384
+margin_right = 799.494
+margin_bottom = 275.862
+texture = ExtResource( 4 )
+flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = -362.468
+margin_top = -27.8226
+margin_right = 37.5321
+margin_bottom = 272.177
+texture = ExtResource( 3 )
+flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Slime2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 34.3325, 208.284 )
