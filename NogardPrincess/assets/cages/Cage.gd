@@ -10,7 +10,7 @@ func _ready():
 	connect("animation_finished", self, "animation_finished")
 
 func _process(delta):
-	if animation == "opening":
+	if animation == "opening" or animation == "closing":
 		return
 		
 	if position.distance_to(player.position) < 25 and !triggered:
