@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://assets/player/rookie/PlayerRookieWalk1.png" type="Texture" id=1]
 [ext_resource path="res://assets/player/Player.gd" type="Script" id=2]
@@ -33,12 +33,18 @@
 [ext_resource path="res://assets/player/strong/PlayerStrongWalk2.png" type="Texture" id=31]
 [ext_resource path="res://assets/music/jump.ogg" type="AudioStream" id=32]
 [ext_resource path="res://assets/music/fairy.wav" type="AudioStream" id=33]
+[ext_resource path="res://assets/speech/Peepo.ttf" type="DynamicFontData" id=34]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 20 ), ExtResource( 21 ) ],
-"loop": false,
-"name": "stereo_strong_attack",
+"frames": [ ExtResource( 15 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "stereo_medium_idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 15 ), ExtResource( 18 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "stereo_medium_walk",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ) ],
@@ -46,19 +52,64 @@ animations = [ {
 "name": "stereo_medium_jumpUp",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
+"frames": [ ExtResource( 16 ) ],
 "loop": true,
-"name": "medium_jumpUp",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 15 ), ExtResource( 19 ) ],
-"loop": true,
-"name": "stereo_medium_idle",
+"name": "stereo_medium_jumpDown",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "rookie_jumpDown",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "stereo_strong_idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 29 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "strong_attack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 9 ) ],
+"loop": false,
+"name": "medium_attack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ), ExtResource( 26 ), ExtResource( 31 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "strong_walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "rookie_attack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 28 ) ],
+"loop": true,
+"name": "strong_jumpDown",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "rookie_idle",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "rookie_jumpUp",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "medium_jumpUp",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 25 ) ],
+"loop": true,
+"name": "stereo_strong_jumpDown",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ), ExtResource( 11 ) ],
@@ -71,49 +122,9 @@ animations = [ {
 "name": "strong_jumpUp",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 21 ) ],
-"loop": true,
-"name": "stereo_strong_jumpUp",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 20 ), ExtResource( 21 ) ],
 "loop": false,
-"name": "rookie_attack",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "rookie_idle",
-"speed": 4.0
-}, {
-"frames": [ ExtResource( 29 ), ExtResource( 26 ) ],
-"loop": false,
-"name": "strong_attack",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 15 ), ExtResource( 14 ) ],
-"loop": false,
-"name": "stereo_medium_attack",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 16 ) ],
-"loop": true,
-"name": "stereo_medium_jumpDown",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "rookie_jumpUp",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 25 ) ],
-"loop": true,
-"name": "stereo_strong_jumpDown",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "medium_walk",
+"name": "stereo_strong_attack",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 4 ) ],
@@ -121,9 +132,14 @@ animations = [ {
 "name": "rookie_walk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 15 ), ExtResource( 18 ), ExtResource( 15 ) ],
+"frames": [ ExtResource( 12 ) ],
 "loop": true,
-"name": "stereo_medium_walk",
+"name": "medium_jumpDown",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "medium_walk",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 23 ), ExtResource( 21 ), ExtResource( 24 ), ExtResource( 21 ) ],
@@ -131,14 +147,9 @@ animations = [ {
 "name": "stereo_strong_walk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 15 ), ExtResource( 14 ) ],
 "loop": false,
-"name": "medium_attack",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "medium_jumpDown",
+"name": "stereo_medium_attack",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 26 ), ExtResource( 27 ) ],
@@ -146,19 +157,9 @@ animations = [ {
 "name": "strong_idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 21 ), ExtResource( 22 ) ],
+"frames": [ ExtResource( 21 ) ],
 "loop": true,
-"name": "stereo_strong_idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 28 ) ],
-"loop": true,
-"name": "strong_jumpDown",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 30 ), ExtResource( 26 ), ExtResource( 31 ), ExtResource( 26 ) ],
-"loop": true,
-"name": "strong_walk",
+"name": "stereo_strong_jumpUp",
 "speed": 5.0
 } ]
 
@@ -170,6 +171,14 @@ extents = Vector2( 5.7, 13 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 8, 13 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 22
+font_data = ExtResource( 34 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 22
+font_data = ExtResource( 34 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -201,3 +210,29 @@ shape = SubResource( 4 )
 [node name="LeftAreaCollision" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( -6, 2.5 )
 shape = SubResource( 4 )
+
+[node name="GameOver" type="Label" parent="."]
+visible = false
+margin_left = -39.2491
+margin_top = -19.7346
+margin_right = 67.7509
+margin_bottom = 22.2654
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.00784314, 0.00784314, 0.00784314, 1 )
+text = "You lost!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Won" type="Label" parent="."]
+visible = false
+margin_left = -39.3306
+margin_top = -21.7255
+margin_right = 45.6694
+margin_bottom = 10.2745
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "You won!"
+__meta__ = {
+"_edit_use_anchors_": false
+}

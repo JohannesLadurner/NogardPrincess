@@ -12,7 +12,7 @@ export var dialogFairy1 = ["One shall not solely walk\non well-known paths.",
 
 export var dialogFairy2 = ["You did well!", 
 "Now you shall go and\nfulfill your destiny.",
-"Remember: Even the smallest\nfroggie can change the\ncourse of the future!"]
+"Remember: Even the smallest\nfroggie can change the future!"]
 
 export var player_skin = 0
 var skins = ["stereo_strong_", "stereo_medium_", "rookie_", "medium_", "strong_"]

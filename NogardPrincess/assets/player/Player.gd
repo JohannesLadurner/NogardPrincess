@@ -40,8 +40,11 @@ func _physics_process(delta: float) -> void:
 	# reset horizontal velocity
 	velocity.x = 0
 	update_health_ui()
+	if GlobalProperties.endGame and position.x > start.position.x:
+		get_node("Won").visible = true
+		return
 	if GlobalProperties.player_health >= GlobalProperties.player_max_health or GlobalProperties.player_health <= 0:
-		# TODO Show game over screen
+		get_node("GameOver").visible = true
 		return
 	if GlobalProperties.dialogMode == true:
 		var text = GlobalProperties.get_dialog_text()
