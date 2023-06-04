@@ -3,13 +3,13 @@ extends KinematicBody2D
 export var move_speed := 100
 export var jump_speed := 350
 export var gravity := 1000
-export var health := 1
 onready var area := get_node("Area2D")
 var enemy
 var velocity := Vector2.ZERO
 onready var end = get_parent().get_node("End")
 onready var start = get_parent().get_node("Start")
 onready var fall = get_parent().get_node("Fall")
+onready var lives = get_parent().get_node("CanvasLayer/Lives")
 onready var speechbubble = get_parent().get_node("Speechbubble")
 var dialog_timer = Timer.new()
 var readyToContinueDialog = true
@@ -34,8 +34,9 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	# reset horizontal velocity
 	velocity.x = 0
-	if health >= 5:
-		return 
+	if GlobalProperties.player_health >= GlobalProperties.player_max_health or GlobalProperties.player_health <= 0:
+		# TODO Show game over screen
+		return
 	if GlobalProperties.dialogMode == true:
 		var text = GlobalProperties.get_dialog_text()
 		if text == null:
@@ -68,6 +69,8 @@ func _physics_process(delta: float) -> void:
 	if position.y > fall.position.y:
 		reset()
 	
+	update_health_ui()
+	
 	if Input.is_action_pressed("attack"):
 		attack()
 		
@@ -77,7 +80,6 @@ func _physics_process(delta: float) -> void:
 
 	# actually move the player
 	velocity = move_and_slide(velocity, Vector2.UP)
-	print(health)
 
 func _process(delta: float) -> void:
 	change_animation()
@@ -142,7 +144,16 @@ func changeSceneReverse():
 		
 func reset():
 	get_tree().reload_current_scene()
-	health -= 1
+	if GlobalProperties.is_reverse:
+		GlobalProperties.player_health += 1
+	else:
+		GlobalProperties.player_health -= 1
+
+func update_health_ui():
+	for i in range(1, GlobalProperties.player_health):
+		lives.get_child(i).visible = true
+	for i in range(GlobalProperties.player_health, 5):
+		lives.get_child(i).visible = false
 
 func attack():
 	if $AnimatedSprite.animation == "attack":
@@ -157,4 +168,4 @@ func animation_finished():
 		
 func dialog_delay_resetted():
 	readyToContinueDialog = true
-	
+

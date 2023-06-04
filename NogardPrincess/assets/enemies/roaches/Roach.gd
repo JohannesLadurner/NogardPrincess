@@ -4,7 +4,6 @@ onready var player = get_parent().get_node("Player")
 var move_speed = 30
 export var gravity := 3000
 var velocity := Vector2.ZERO
-var player_position
 export var triggered = false
 var health := 1
 var attack_timer = Timer.new()
@@ -34,7 +33,7 @@ func _process(delta):
 		$AnimatedSprite.play("dead")
 		return
 		
-	player_position = player.position
+	var player_position = player.position
 	var target_position = (player.position - position).normalized()
 	if triggered or position.distance_to(player.position) < 50:
 		move_and_slide(target_position * move_speed)
@@ -67,7 +66,10 @@ func attack_delay_resetted():
 
 func attack():
 	attack_timer.start()
-	player.health += 1
+	if GlobalProperties.is_reverse:
+		GlobalProperties.player_health += 1
+	else:
+		GlobalProperties.player_health -= 1
 	readyToAttack = false
 	
 func animation_finished():

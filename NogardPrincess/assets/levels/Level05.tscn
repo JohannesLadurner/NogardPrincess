@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://assets/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tiles/wood/WoodBorder2.png" type="Texture" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://assets/tiles/stones/StonePlantBorder.png" type="Texture" id=17]
 [ext_resource path="res://assets/enemies/slimes/Slime.tscn" type="PackedScene" id=18]
 [ext_resource path="res://assets/backgrounds/BackgroundGrass.png" type="Texture" id=19]
+[ext_resource path="res://assets/hud/Heart.png" type="Texture" id=20]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -478,3 +479,38 @@ position = Vector2( 0, 136 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fall"]
 position = Vector2( 0, 6 )
 shape = SubResource( 19 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Lives" type="TextureRect" parent="CanvasLayer"]
+margin_left = -4.68
+margin_right = 120.68
+margin_bottom = 28.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Heart1" type="Sprite" parent="CanvasLayer/Lives"]
+position = Vector2( 20, 15 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 20 )
+
+[node name="Heart2" type="Sprite" parent="CanvasLayer/Lives"]
+position = Vector2( 42, 15 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 20 )
+
+[node name="Heart3" type="Sprite" parent="CanvasLayer/Lives"]
+position = Vector2( 64, 15 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 20 )
+
+[node name="Heart4" type="Sprite" parent="CanvasLayer/Lives"]
+position = Vector2( 86, 15 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 20 )
+
+[node name="Heart5" type="Sprite" parent="CanvasLayer/Lives"]
+position = Vector2( 108, 15 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 20 )
