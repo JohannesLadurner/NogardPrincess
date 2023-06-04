@@ -264,7 +264,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 } ]
 10/z_index = 0
 
-[sub_resource type="SpriteFrames" id=17]
+[sub_resource type="SpriteFrames" id=12]
 animations = [ {
 "frames": [ ExtResource( 20 ), ExtResource( 19 ) ],
 "loop": true,
@@ -350,9 +350,8 @@ tile_data = PoolIntArray( -65587, 1610612739, 0, -65586, 1610612739, 0, -65585, 
 [node name="Fairy" type="AnimatedSprite" parent="."]
 position = Vector2( 855.843, 141.497 )
 scale = Vector2( 0.835715, 0.835715 )
-frames = SubResource( 17 )
+frames = SubResource( 12 )
 animation = "idle"
-frame = 1
 playing = true
 
 [node name="Cage" parent="." instance=ExtResource( 14 )]
