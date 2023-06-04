@@ -38,6 +38,7 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	# reset horizontal velocity
 	velocity.x = 0
+	update_health_ui()
 	if GlobalProperties.player_health >= GlobalProperties.player_max_health or GlobalProperties.player_health <= 0:
 		# TODO Show game over screen
 		return
@@ -72,8 +73,6 @@ func _physics_process(delta: float) -> void:
 	
 	if position.y > fall.position.y:
 		reset()
-	
-	update_health_ui()
 	
 	if Input.is_action_pressed("attack"):
 		attack()
@@ -164,7 +163,8 @@ func attack():
 		return
 	$AnimatedSprite.play("attack")
 	for area in get_node("Area2D").get_overlapping_areas():
-		if area.has_method("get_damage"):
+		print(area.get_parent().has_method("get_damage"))
+		if area.get_parent().has_method("get_damage"):
 			area.get_parent().get_damage()
 		
 func animation_finished():
