@@ -20,11 +20,6 @@ animations = [ {
 "name": "walk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 4 ) ],
-"loop": false,
-"name": "attack",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "jumpUp",
@@ -33,6 +28,11 @@ animations = [ {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "jumpDown",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "attack",
 "speed": 5.0
 } ]
 
@@ -43,7 +43,7 @@ extents = Vector2( 5.7, 13 )
 extents = Vector2( 5.7, 13 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 4, 13 )
+extents = Vector2( 8, 13 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -63,9 +63,9 @@ shape = SubResource( 3 )
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="RightAreaCollision" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 4, 2.5 )
+position = Vector2( 6, 2.5 )
 shape = SubResource( 4 )
 
 [node name="LeftAreaCollision" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( -4, 2.5 )
+position = Vector2( -6, 2.5 )
 shape = SubResource( 4 )
