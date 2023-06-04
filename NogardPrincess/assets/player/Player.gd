@@ -18,11 +18,15 @@ var attack_delay = 100
 var readyToAttack = true
 
 func _ready():
+	if GlobalProperties.is_reverse:
+		position = start.position
+	else:
+		position = end.position
 	$AnimatedSprite.play("idle")
 	$AnimatedSprite.connect("animation_finished", self, "animation_finished")
 	area.connect("area_enter", self, "_on_collision")
 	dialog_timer.connect("timeout", self, "dialog_delay_resetted")
-	dialog_timer.wait_time = 2
+	dialog_timer.wait_time = 1
 	dialog_timer.one_shot = true
 	add_child(dialog_timer)
 	
@@ -159,8 +163,9 @@ func attack():
 	if $AnimatedSprite.animation == "attack":
 		return
 	$AnimatedSprite.play("attack")
-	for enemy in get_node("Area2D").get_overlapping_areas():
-		enemy.get_parent().get_damage()
+	for area in get_node("Area2D").get_overlapping_areas():
+		if area.has_method("get_damage"):
+			area.get_parent().get_damage()
 		
 func animation_finished():
 	if $AnimatedSprite.animation == "attack":

@@ -5,6 +5,7 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 9
+extra_spacing_top = 2
 font_data = ExtResource( 2 )
 
 [node name="Speechbubble" type="Sprite"]
@@ -22,7 +23,8 @@ margin_bottom = 14.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-text = "Das ist ein test Text"
+text = "Das ist ein test Text
+Untere Zeile"
 __meta__ = {
 "_edit_use_anchors_": true
 }

@@ -5,8 +5,9 @@ export var dialogMode = false
 export var player_health = 1
 export var player_max_health = 5
 var dialogIndex = 0
-export var dialogFairy1 = ["Hello, what are you doing??????",
-"This is some test Text from\nfairy"]
+export var dialogFairy1 = ["One shall not solely walk\non well-known paths.",
+"Diversity is what you\nwant to be looking for.",
+"You shall try again,\nAnn-Bee, and try to pass."]
 
 func get_dialog_text():
 	if dialogIndex < dialogFairy1.size():
