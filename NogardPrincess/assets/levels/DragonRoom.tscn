@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://assets/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tiles/stones/StoneCeilPlant.png" type="Texture" id=2]
@@ -10,10 +10,30 @@
 [ext_resource path="res://assets/tiles/stones/StonePlantMiddle.png" type="Texture" id=8]
 [ext_resource path="res://assets/tiles/stones/StoneMiddle.png" type="Texture" id=9]
 [ext_resource path="res://assets/enemies/princess/Princess.tscn" type="PackedScene" id=10]
-[ext_resource path="res://assets/cages/CageLocked.png" type="Texture" id=11]
+[ext_resource path="res://assets/cages/CageClosed.png" type="Texture" id=11]
 [ext_resource path="res://assets/enemies/nogard/Nogard.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/hud/Heart.png" type="Texture" id=13]
 [ext_resource path="res://assets/backgrounds/BackgroundCastle2.png" type="Texture" id=14]
+[ext_resource path="res://assets/cages/CageHalfClosed.png" type="Texture" id=15]
+[ext_resource path="res://assets/cages/CageOpened.png" type="Texture" id=16]
+
+[sub_resource type="SpriteFrames" id=14]
+animations = [ {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "unlocked",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "locked",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "opening",
+"speed": 5.0
+} ]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -254,6 +274,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 652.136, 89.3067 )
+scale = Vector2( 0.869744, 0.869744 )
+frames = SubResource( 14 )
+animation = "unlocked"
+
 [node name="Princess" parent="." instance=ExtResource( 10 )]
 position = Vector2( 660, 97 )
 scale = Vector2( 0.65, 0.65 )
@@ -279,11 +305,6 @@ shape = SubResource( 11 )
 
 [node name="Nogard" parent="." instance=ExtResource( 12 )]
 position = Vector2( 400.267, 142.952 )
-
-[node name="Cage" type="Sprite" parent="."]
-position = Vector2( 662, 88.2 )
-scale = Vector2( 0.75, 0.82 )
-texture = ExtResource( 11 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 223.664, 172.833 )
