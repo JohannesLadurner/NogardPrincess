@@ -5,7 +5,7 @@ export var dialogMode = false
 export var player_health = 1
 export var player_max_health = 5
 export var endGame = false
-var dialogIndex = 0
+export var dialogIndex = 0
 export var dialogFairy1 = ["One shall not solely walk\non well-known paths.",
 "Diversity is what you\nwant to be looking for.",
 "You shall try again,\nAnn-Bee, and try to pass."]

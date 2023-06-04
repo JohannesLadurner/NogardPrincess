@@ -43,8 +43,18 @@ func _physics_process(delta: float) -> void:
 	if GlobalProperties.endGame and position.x > start.position.x:
 		get_node("Won").visible = true
 		return
+		
 	if GlobalProperties.player_health >= GlobalProperties.player_max_health or GlobalProperties.player_health <= 0:
 		get_node("GameOver").visible = true
+		if Input.is_action_pressed("attack"):
+			GlobalProperties.is_reverse = false
+			GlobalProperties.dialogMode = false
+			GlobalProperties.player_health = 1
+			GlobalProperties.player_max_health = 5
+			GlobalProperties.endGame = false
+			GlobalProperties.dialogIndex = 0
+			GlobalProperties.player_skin = 0
+			get_tree().change_scene("res://assets/levels/DragonRoom.tscn")
 		return
 	if GlobalProperties.dialogMode == true:
 		var text = GlobalProperties.get_dialog_text()
