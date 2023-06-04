@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 			restart_game()
 		return
 		
-	if GlobalProperties.player_health >= GlobalProperties.player_max_health or GlobalProperties.player_health <= 0:
+	if GlobalProperties.player_health > GlobalProperties.player_max_health or GlobalProperties.player_health <= 0:
 		get_node("GameOver").visible = true
 		if Input.is_action_pressed("attack"):
 			restart_game()
@@ -182,12 +182,13 @@ func reset():
 		GlobalProperties.player_health -= 1
 
 func update_health_ui():
-	if GlobalProperties.player_health <= 0 or GlobalProperties.player_health >= GlobalProperties.player_max_health:
+	if GlobalProperties.player_health <= 0 or GlobalProperties.player_health > GlobalProperties.player_max_health:
 		return
 	
-	for i in range(1, GlobalProperties.player_health):
+	for i in range(0, GlobalProperties.player_health):
 		lives.get_child(i).visible = true
-	for i in range(GlobalProperties.player_health, 5):
+		
+	for i in range(GlobalProperties.player_health, GlobalProperties.player_max_health):
 		lives.get_child(i).visible = false
 
 func attack():

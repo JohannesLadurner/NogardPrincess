@@ -35,6 +35,8 @@ script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 visible = false
+position = Vector2( -0.561226, -5.33169 )
+scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 2 )
 animation = "blink"
 

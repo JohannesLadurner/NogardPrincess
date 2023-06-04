@@ -497,26 +497,31 @@ __meta__ = {
 }
 
 [node name="Heart1" type="Sprite" parent="CanvasLayer/Lives"]
+visible = false
 position = Vector2( 20, 15 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 21 )
 
 [node name="Heart2" type="Sprite" parent="CanvasLayer/Lives"]
+visible = false
 position = Vector2( 42, 15 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 21 )
 
 [node name="Heart3" type="Sprite" parent="CanvasLayer/Lives"]
+visible = false
 position = Vector2( 64, 15 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 21 )
 
 [node name="Heart4" type="Sprite" parent="CanvasLayer/Lives"]
+visible = false
 position = Vector2( 86, 15 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 21 )
 
 [node name="Heart5" type="Sprite" parent="CanvasLayer/Lives"]
+visible = false
 position = Vector2( 108, 15 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 21 )

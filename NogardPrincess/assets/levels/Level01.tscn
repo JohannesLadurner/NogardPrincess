@@ -291,9 +291,9 @@ font_data = ExtResource( 22 )
 
 [node name="TextureRect5" type="TextureRect" parent="."]
 margin_left = 743.305
-margin_top = -50.7877
+margin_top = -52.0
 margin_right = 1143.31
-margin_bottom = 249.212
+margin_bottom = 248.0
 texture = ExtResource( 17 )
 flip_v = true
 __meta__ = {
@@ -356,6 +356,7 @@ position = Vector2( 855.843, 141.497 )
 scale = Vector2( 0.835715, 0.835715 )
 frames = SubResource( 12 )
 animation = "idle"
+frame = 1
 playing = true
 
 [node name="Slime" parent="." instance=ExtResource( 8 )]
@@ -428,26 +429,31 @@ __meta__ = {
 }
 
 [node name="Heart1" type="Sprite" parent="CanvasLayer/Lives"]
+visible = false
 position = Vector2( 20, 15 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 18 )
 
 [node name="Heart2" type="Sprite" parent="CanvasLayer/Lives"]
+visible = false
 position = Vector2( 42, 15 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 18 )
 
 [node name="Heart3" type="Sprite" parent="CanvasLayer/Lives"]
+visible = false
 position = Vector2( 64, 15 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 18 )
 
 [node name="Heart4" type="Sprite" parent="CanvasLayer/Lives"]
+visible = false
 position = Vector2( 86, 15 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 18 )
 
 [node name="Heart5" type="Sprite" parent="CanvasLayer/Lives"]
+visible = false
 position = Vector2( 108, 15 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 18 )
