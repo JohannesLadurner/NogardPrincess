@@ -18,7 +18,6 @@ func _process(delta):
 			play("closing")
 		else:
 			play("opening")
-		GlobalProperties.next_skin()
 		triggered = true
 
 func animation_finished():
