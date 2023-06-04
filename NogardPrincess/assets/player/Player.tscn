@@ -36,99 +36,34 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 15 ), ExtResource( 19 ) ],
-"loop": true,
-"name": "stereo_medium_idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "rookie_walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 17 ), ExtResource( 15 ), ExtResource( 18 ), ExtResource( 15 ) ],
-"loop": true,
-"name": "stereo_medium_walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "rookie_jumpUp",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 16 ) ],
-"loop": true,
-"name": "stereo_medium_jumpDown",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "medium_jumpDown",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 21 ), ExtResource( 22 ) ],
-"loop": true,
-"name": "stereo_strong_idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 15 ), ExtResource( 14 ) ],
-"loop": false,
-"name": "stereo_medium_attack",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ), ExtResource( 9 ) ],
-"loop": false,
-"name": "medium_attack",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 29 ), ExtResource( 26 ) ],
-"loop": false,
-"name": "strong_attack",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 25 ) ],
-"loop": true,
-"name": "stereo_strong_jumpDown",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "medium_walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 30 ), ExtResource( 26 ), ExtResource( 31 ), ExtResource( 26 ) ],
-"loop": true,
-"name": "strong_walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 23 ), ExtResource( 21 ), ExtResource( 24 ), ExtResource( 21 ) ],
-"loop": true,
-"name": "stereo_strong_walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 26 ), ExtResource( 27 ) ],
-"loop": true,
-"name": "strong_idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 28 ) ],
-"loop": true,
-"name": "strong_jumpDown",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 20 ), ExtResource( 21 ) ],
 "loop": false,
 "name": "stereo_strong_attack",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 15 ) ],
 "loop": true,
-"name": "medium_idle",
+"name": "stereo_medium_jumpUp",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "medium_jumpUp",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "stereo_medium_idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "rookie_jumpDown",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "medium_idle",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 26 ) ],
@@ -151,14 +86,79 @@ animations = [ {
 "name": "rookie_idle",
 "speed": 4.0
 }, {
-"frames": [ ExtResource( 15 ) ],
-"loop": true,
-"name": "stereo_medium_jumpUp",
+"frames": [ ExtResource( 29 ), ExtResource( 26 ) ],
+"loop": false,
+"name": "strong_attack",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 15 ), ExtResource( 14 ) ],
+"loop": false,
+"name": "stereo_medium_attack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
 "loop": true,
-"name": "rookie_jumpDown",
+"name": "stereo_medium_jumpDown",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "rookie_jumpUp",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 25 ) ],
+"loop": true,
+"name": "stereo_strong_jumpDown",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "medium_walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "rookie_walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 15 ), ExtResource( 18 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "stereo_medium_walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 21 ), ExtResource( 24 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "stereo_strong_walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 9 ) ],
+"loop": false,
+"name": "medium_attack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "medium_jumpDown",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 26 ), ExtResource( 27 ) ],
+"loop": true,
+"name": "strong_idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "stereo_strong_idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 28 ) ],
+"loop": true,
+"name": "strong_jumpDown",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ), ExtResource( 26 ), ExtResource( 31 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "strong_walk",
 "speed": 5.0
 } ]
 
