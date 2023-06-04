@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://assets/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tiles/wood/WoodBorder2.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://assets/enemies/slimes/Slime.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/backgrounds/BackgroundGrass.png" type="Texture" id=11]
 [ext_resource path="res://assets/hud/Heart.png" type="Texture" id=12]
+[ext_resource path="res://assets/enemies/roaches/Roach.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -256,6 +257,9 @@ drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 editor_draw_drag_margin = true
 
+[node name="Roach" parent="." instance=ExtResource( 13 )]
+position = Vector2( -246.141, 97.0036 )
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 10 )
 cell_size = Vector2( 16, 16 )
@@ -266,14 +270,14 @@ tile_data = PoolIntArray( -589843, 6, 0, -589842, 6, 0, -524307, 6, 0, -524306, 
 position = Vector2( 98.1286, 96.9141 )
 
 [node name="End" type="Area2D" parent="."]
-position = Vector2( -293.416, 71.5354 )
+position = Vector2( -295.416, 105.535 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="End"]
 position = Vector2( -3.6131, 16.0784 )
 shape = SubResource( 11 )
 
 [node name="Start" type="Area2D" parent="."]
-position = Vector2( 233.428, 8.92617 )
+position = Vector2( 231.428, 69.9262 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Start"]
 position = Vector2( -0.673676, 30.6521 )

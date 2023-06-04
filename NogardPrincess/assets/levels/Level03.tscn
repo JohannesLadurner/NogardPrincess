@@ -405,14 +405,14 @@ tile_data = PoolIntArray( -655346, 14, 0, -589810, 14, 0, -589809, 1610612750, 0
 position = Vector2( -232.495, 80.6046 )
 
 [node name="End" type="Area2D" parent="."]
-position = Vector2( -807.242, 10.5225 )
+position = Vector2( -805.242, 69.5225 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="End"]
 position = Vector2( -1.14709, 29.5373 )
 shape = SubResource( 15 )
 
 [node name="Start" type="Area2D" parent="."]
-position = Vector2( 234.298, 49.4517 )
+position = Vector2( 231.298, 54.4517 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Start"]
 shape = SubResource( 16 )

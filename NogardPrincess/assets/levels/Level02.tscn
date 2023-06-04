@@ -308,14 +308,14 @@ position = Vector2( -64.545, 80.1091 )
 position = Vector2( 213.967, 63.4113 )
 
 [node name="End" type="Area2D" parent="."]
-position = Vector2( -359.1, 153.207 )
+position = Vector2( -360.1, 168.207 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="End"]
 position = Vector2( -2.33966, 6.31705 )
 shape = SubResource( 11 )
 
 [node name="Start" type="Area2D" parent="."]
-position = Vector2( 488.116, 89.2721 )
+position = Vector2( 487.116, 102.272 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Start"]
 position = Vector2( -0.542114, 6.50521 )
