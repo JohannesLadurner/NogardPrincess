@@ -260,7 +260,7 @@ drag_margin_v_enabled = true
 editor_draw_drag_margin = true
 
 [node name="Roach" parent="." instance=ExtResource( 13 )]
-position = Vector2( -246.141, 97.0036 )
+position = Vector2( -168.555, 34.5369 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 10 )
