@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/chests/Chest.gd" type="Script" id=1]
 [ext_resource path="res://assets/chests/ChestOpened.png" type="Texture" id=2]
 [ext_resource path="res://assets/chests/ChestClosed.png" type="Texture" id=3]
 [ext_resource path="res://assets/stars/StarIdle2.png" type="Texture" id=4]
 [ext_resource path="res://assets/stars/StarIdle1.png" type="Texture" id=5]
+[ext_resource path="res://assets/music/chest.wav" type="AudioStream" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -36,3 +37,6 @@ script = ExtResource( 1 )
 visible = false
 frames = SubResource( 2 )
 animation = "blink"
+
+[node name="ChestSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
