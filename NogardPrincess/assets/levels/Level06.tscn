@@ -465,7 +465,7 @@ tile_data = PoolIntArray( -1114148, 12, 0, -1114147, 12, 0, -1114146, 12, 0, -11
 position = Vector2( 19, -15 )
 
 [node name="End" type="Area2D" parent="."]
-position = Vector2( -521.676, -73.211 )
+position = Vector2( -505.676, -65.211 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="End"]
 shape = SubResource( 17 )
@@ -474,7 +474,7 @@ shape = SubResource( 17 )
 position = Vector2( -104.037, -14.6715 )
 
 [node name="Start" type="Area2D" parent="."]
-position = Vector2( 239.562, -8.6145 )
+position = Vector2( 243.562, -8.6145 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Start"]
 position = Vector2( 2.10211, -7.62939e-06 )
@@ -522,6 +522,7 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 21 )
 
 [node name="Speechbubble" parent="." instance=ExtResource( 24 )]
+visible = false
 position = Vector2( -454.27, -115.362 )
 flip_h = true
 
