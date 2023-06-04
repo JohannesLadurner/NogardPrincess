@@ -1,11 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/cages/CageClosed.png" type="Texture" id=1]
 [ext_resource path="res://assets/cages/CageHalfClosed.png" type="Texture" id=2]
 [ext_resource path="res://assets/cages/CageOpened.png" type="Texture" id=3]
+[ext_resource path="res://assets/cages/Cage.gd" type="Script" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "opening",
+"speed": 4.0
+}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "unlocked",
@@ -16,14 +22,15 @@ animations = [ {
 "name": "locked",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "opening",
-"speed": 5.0
+"frames": [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": false,
+"name": "closing",
+"speed": 4.0
 } ]
 
 [node name="Cage" type="AnimatedSprite"]
 position = Vector2( 655.843, 88.1952 )
 scale = Vector2( 0.835715, 0.835715 )
 frames = SubResource( 1 )
-animation = "opening"
+animation = "closing"
+script = ExtResource( 4 )

@@ -352,9 +352,8 @@ position = Vector2( 855.843, 141.497 )
 scale = Vector2( 0.835715, 0.835715 )
 frames = SubResource( 12 )
 animation = "idle"
+frame = 1
 playing = true
-
-[node name="Cage" parent="." instance=ExtResource( 14 )]
 
 [node name="Slime" parent="." instance=ExtResource( 8 )]
 position = Vector2( -553.805, 144.334 )
@@ -385,6 +384,8 @@ position = Vector2( -254.792, 158.929 )
 [node name="Princess" parent="." instance=ExtResource( 13 )]
 position = Vector2( 660, 97 )
 scale = Vector2( 0.65, 0.65 )
+
+[node name="Cage" parent="." instance=ExtResource( 14 )]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 152.555, 116.294 )

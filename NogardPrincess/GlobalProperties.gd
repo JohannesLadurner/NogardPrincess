@@ -10,7 +10,7 @@ export var dialogFairy1 = ["One shall not solely walk\non well-known paths.",
 "You shall try again,\nAnn-Bee, and try to pass."]
 
 export var player_skin = 0
-var skins = ["stereo_strong_", "stereo_medium_", "rookie_", "medium_", "strong"]
+var skins = ["stereo_strong_", "stereo_medium_", "rookie_", "medium_", "strong_"]
 
 func get_dialog_text():
 	if dialogIndex < dialogFairy1.size():
