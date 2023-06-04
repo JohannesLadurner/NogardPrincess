@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://assets/enemies/slimes/Slime.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/player/Player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/hud/Heart.png" type="Texture" id=5]
 [ext_resource path="res://assets/enemies/roaches/Roach.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/tiles/stones/StonePlantBorder.png" type="Texture" id=7]
+[ext_resource path="res://assets/chests/Chest.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/tiles/stones/StoneCrackBorder.png" type="Texture" id=9]
 [ext_resource path="res://assets/tiles/stones/StoneBorder.png" type="Texture" id=10]
 [ext_resource path="res://assets/tiles/stones/StoneMiddle.png" type="Texture" id=11]
@@ -361,3 +362,5 @@ texture = ExtResource( 5 )
 position = Vector2( 108, 15 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 5 )
+
+[node name="Chest" parent="." instance=ExtResource( 8 )]

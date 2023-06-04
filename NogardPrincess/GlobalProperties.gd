@@ -9,6 +9,9 @@ export var dialogFairy1 = ["One shall not solely walk\non well-known paths.",
 "Diversity is what you\nwant to be looking for.",
 "You shall try again,\nAnn-Bee, and try to pass."]
 
+export var player_skin = 0
+var skins = ["stereo_strong_", "stereo_medium_", "rookie_", "medium_", "strong"]
+
 func get_dialog_text():
 	if dialogIndex < dialogFairy1.size():
 		var text = dialogFairy1[dialogIndex]
@@ -20,3 +23,9 @@ func continueDialog():
 		dialogIndex += 1;
 		return true
 	return false
+
+func get_skin():
+	return skins[player_skin]
+
+func next_skin():
+	player_skin += 1
