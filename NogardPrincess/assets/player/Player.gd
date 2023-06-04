@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:
 	# reset horizontal velocity
 	velocity.x = 0
 	update_health_ui()
-	if GlobalProperties.endGame and position.x > start.position.x:
+	if GlobalProperties.endGame and position.x > start.position.x and get_tree().get_current_scene().get_name() == "Level01":
 		get_node("Won").visible = true
 		if Input.is_action_pressed("attack"):
 			restart_game()
@@ -147,9 +147,9 @@ func changeSceneForward():
 	elif get_tree().get_current_scene().get_name() == "Level4": 
 		get_tree().change_scene("res://assets/levels/Level03.tscn")
 	elif get_tree().get_current_scene().get_name() == "Level03": 
-		GlobalProperties.endGame = true
 		get_tree().change_scene("res://assets/levels/Level02.tscn")
-	elif get_tree().get_current_scene().get_name() == "Level02": 
+	elif get_tree().get_current_scene().get_name() == "Level02":
+		GlobalProperties.endGame = true
 		get_tree().change_scene("res://assets/levels/Level01.tscn") 
 	
 func changeSceneReverse():

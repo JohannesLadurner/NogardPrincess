@@ -3,7 +3,7 @@ extends AnimatedSprite
 onready var player = get_parent().get_node("Player")
 var triggered = false
 func _ready():
-	if GlobalProperties.is_reverse:
+	if GlobalProperties.is_reverse or GlobalProperties.endGame:
 		play("unlocked")
 	else:
 		play("locked")
@@ -14,7 +14,7 @@ func _process(delta):
 		return
 		
 	if position.distance_to(player.position) < 25 and !triggered:
-		if GlobalProperties.is_reverse:
+		if GlobalProperties.is_reverse or GlobalProperties.endGame:
 			play("closing")
 		else:
 			play("opening")
@@ -22,7 +22,7 @@ func _process(delta):
 
 func animation_finished():
 	if animation == "opening":
-		if GlobalProperties.is_reverse:
+		if GlobalProperties.is_reverse or GlobalProperties.endGame:
 			play("locked")
 		else:
 			play("unlocked")

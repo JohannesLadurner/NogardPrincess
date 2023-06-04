@@ -2,7 +2,7 @@ extends Node
 
 export var is_reverse = false
 export var dialogMode = false
-export var player_health = 1
+export var player_health = 4
 export var player_max_health = 5
 export var endGame = false
 export var dialogIndex = 0

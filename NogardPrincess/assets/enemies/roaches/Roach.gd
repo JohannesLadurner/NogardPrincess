@@ -69,6 +69,7 @@ func attack():
 	if GlobalProperties.is_reverse:
 		GlobalProperties.player_health += 1
 	else:
+		pass
 		GlobalProperties.player_health -= 1
 	readyToAttack = false
 	
@@ -84,3 +85,4 @@ func get_damage():
 		health += 1
 	else:
 		health -= 1
+
